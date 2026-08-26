@@ -1,0 +1,54 @@
+{
+  "doc_id": "20033695",
+  "anchor_count": 4,
+  "rows": [
+    {
+      "row_index": 0,
+      "owner": "SP",
+      "asset_name": "U.S. Treasury Note due 2/28/2029",
+      "asset_type": "GS",
+      "transaction_type": "P",
+      "transaction_date": "12/15/2025",
+      "notification_date": "12/16/2025",
+      "amount": "Spouse/DC Over $1,000,000",
+      "comment": "Filing Status: New",
+      "page": 0
+    },
+    {
+      "row_index": 1,
+      "owner": "SP",
+      "asset_name": "U.S. Treasury Note due 2/28/2030",
+      "asset_type": "GS",
+      "transaction_type": "P",
+      "transaction_date": "12/15/2025",
+      "notification_date": "12/16/2025",
+      "amount": "Spouse/DC Over $1,000,000",
+      "comment": "Filing Status: New",
+      "page": 0
+    },
+    {
+      "row_index": 2,
+      "owner": "SP",
+      "asset_name": "U.S. Treasury Note due 8/31/2029",
+      "asset_type": "GS",
+      "transaction_type": "P",
+      "transaction_date": "12/15/2025",
+      "notification_date": "12/16/2025",
+      "amount": "Spouse/DC Over $1,000,000",
+      "comment": "Filing Status: New",
+      "page": 0
+    },
+    {
+      "row_index": 3,
+      "owner": "SP",
+      "asset_name": "U.S. Treasury Note due 8/31/2030",
+      "asset_type": "GS",
+      "transaction_type": "P",
+      "transaction_date": "12/15/2025",
+      "notification_date": "12/16/2025",
+      "amount": "Spouse/DC Over $1,000,000",
+      "comment": "Filing Status: New",
+      "page": 0
+    }
+  ]
+}

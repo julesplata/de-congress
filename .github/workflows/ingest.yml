@@ -1,0 +1,83 @@
+name: ingest
+
+on:
+  schedule:
+    # Weekly, Sunday 07:00 UTC. PTRs are filed on business days, so a weekend
+    # run picks up the whole preceding week.
+    - cron: "0 7 * * 0"
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Calendar year to ingest (defaults to the current year)"
+        required: false
+        type: string
+      force:
+        description: "Re-parse every filing, ignoring cached results"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Ingest
+        env:
+          YEAR: ${{ inputs.year }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          YEAR="${YEAR:-$(date -u +%Y)}"
+          ARGS=(--year "$YEAR")
+          # Must be an `if`, not `cond && cmd`: under `bash -eo pipefail` a
+          # false test would make the whole step exit non-zero.
+          if [ "$FORCE" = "true" ]; then
+            ARGS+=(--force)
+          fi
+          python -m ingest.run "${ARGS[@]}"
+
+      - name: Summarise
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          report = json.load(open("data/report.json"))
+          print("| metric | value |")
+          print("| --- | --- |")
+          for key, value in report.items():
+              if isinstance(value, list):
+                  value = len(value)
+              print(f"| {key} | {value} |")
+          PY
+
+      # .cache/ is gitignored, so `git add data` is the only path that can be
+      # staged; downloaded ZIPs and PDFs never enter the repo.
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "data: weekly ingest $(date -u +%Y-%m-%d)"
+            git push
+          fi

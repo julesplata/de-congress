@@ -1,0 +1,5 @@
+httpx
+pdfplumber
+pydantic>=2
+python-dateutil
+pytest
