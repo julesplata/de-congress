@@ -3780,6 +3780,18 @@
     "parse_error": null
   },
   {
+    "doc_id": "20035244",
+    "doc_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035244.pdf",
+    "filer_name": "Hon. Kelly Louise Morrison",
+    "filing_date": "2026-08-25",
+    "year": 2026,
+    "parsed_row_count": 7,
+    "stated_row_count": 7,
+    "reconciled": true,
+    "rows_dropped": 0,
+    "parse_error": null
+  },
+  {
     "doc_id": "20035260",
     "doc_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035260.pdf",
     "filer_name": "Hon. Richard W. Allen",
@@ -3844,6 +3856,30 @@
     "doc_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035291.pdf",
     "filer_name": "Hon. Tim Moore",
     "filing_date": "2026-08-20",
+    "year": 2026,
+    "parsed_row_count": 1,
+    "stated_row_count": 1,
+    "reconciled": true,
+    "rows_dropped": 0,
+    "parse_error": null
+  },
+  {
+    "doc_id": "20035293",
+    "doc_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035293.pdf",
+    "filer_name": "Hon. William R. Keating",
+    "filing_date": "2026-08-25",
+    "year": 2026,
+    "parsed_row_count": 1,
+    "stated_row_count": 1,
+    "reconciled": true,
+    "rows_dropped": 0,
+    "parse_error": null
+  },
+  {
+    "doc_id": "20035309",
+    "doc_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035309.pdf",
+    "filer_name": "Hon. Michael Rulli",
+    "filing_date": "2026-08-25",
     "year": 2026,
     "parsed_row_count": 1,
     "stated_row_count": 1,
